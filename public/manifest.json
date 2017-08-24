@@ -1,0 +1,20 @@
+{
+  "manifest_version": 2,
+  "name": "Goto Links",
+  "description": "A Chrome extension for shortening and namespacing any URL",
+  "version": "0.1.0",
+  "omnibox": {
+    "keyword": "go"
+  },
+  "icons": {
+    "16": "icon.png"
+  },
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_popup": "index.html",
+    "default_title": "Goto Links: click to create a goto link for current page"
+  },
+  "permissions": [
+    "tabs"
+  ]
+}
