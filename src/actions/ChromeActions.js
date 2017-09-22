@@ -40,7 +40,7 @@ const getCurrentUrl = (callback) => {
       // exactly one tab.
       const tab = tabs[0];
 
-      // A tab is a plain object that provides information about the tab.
+      // A tab is a plain object that provides information abonInputEnteredt the tab.
       // See https://developer.chrome.com/extensions/tabs#type-Tab
       const url = tab.url;
 

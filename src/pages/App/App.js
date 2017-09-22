@@ -1,15 +1,18 @@
+/* @flow */
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import RaisedButton from 'material-ui/RaisedButton';
+import LinksTable from './components/LinksTable';
+
 import './App.css';
 
-class App extends Component {
+type Props = {
+  +url: string,
+  +service: Object
+};
 
-  static propTypes = {
-    url: PropTypes.string.isRequired,
-    service: PropTypes.object.isRequired
-  };
+class App extends Component<Props> {
 
-  handleKeyPress = (e) => {
+  handleKeyPress = (e: Event) => {
     if (e.key !== 'Enter') {
       return;
     }
@@ -21,18 +24,33 @@ class App extends Component {
 
   render() {
     const { url } = this.props;
+    const links = [
+      {
+        namespace: 'go',
+        url: 'https://google.com',
+        shortName: 'gg'
+      }
+    ];
     return (
       <div className="container">
-        <h2>Goto Links</h2>
-        <div>
+        <div className="app">
+          <h2>Goto Links</h2>
           <div>
-            <span>URL:</span>
-            <span>{url}</span>
+            <div>
+              <span>URL:</span>
+              <span>{url}</span>
+            </div>
+            <div>
+              <span>go/</span>
+              <input type="text" ref="linkName" onKeyPress={this.handleKeyPress} />
+              <RaisedButton label="Create" />
+            </div>
           </div>
-          <div>
-            <span>go/</span>
-            <input type="text" ref="linkName" onKeyPress={this.handleKeyPress} />
+
+          <div className="links-table">
+            <LinksTable links={links} />
           </div>
+
         </div>
       </div>
     );
